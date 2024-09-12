@@ -1,11 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 
+// Home page route
 Route::get('/', function () {
     return view('welcome');
 });
 
-//route resources for products
-Route::resource('/products', \App\Http\Controllers\ProductController::class);
-Route::resource('/supplier', \App\Http\Controllers\SupplierController::class);
+// Resource routes for products
+Route::resource('/products', ProductController::class);
+
+// Resource routes for suppliers
+Route::resource('/supplier', SupplierController::class);

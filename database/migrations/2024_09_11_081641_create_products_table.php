@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_category_id')->nullable()->index();
             $table->string('image');
+            $table->string('title');
             $table->text('description');
             $table->bigInteger('price');
             $table->integer('stock')->default(0);

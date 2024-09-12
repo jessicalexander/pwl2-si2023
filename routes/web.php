@@ -13,4 +13,4 @@ Route::get('/', function () {
 Route::resource('/products', ProductController::class);
 
 // Resource routes for suppliers
-Route::resource('/supplier', SupplierController::class);
+Route::resource('/suppliers', SupplierController::class);

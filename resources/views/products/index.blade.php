@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="">
-                    <h3 class="text-center my-4">Tutorial Laravel 11</h3>
+                    <h3 class="text-center my-4">Tugas Self-Learn Pert 4</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-5m rounded">

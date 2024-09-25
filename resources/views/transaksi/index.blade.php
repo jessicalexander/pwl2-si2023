@@ -34,7 +34,7 @@
                             <tbody>
                                 @forelse ($trans as $t)
                                 <tr>
-                                    <td>{{$t->tgl_transaksi}}</td>
+                                    <td>{{$t->created_at}}</td>
                                     <td>{{$t->nama_kasir}}</td>
                                     <td>{{$t->title}}</td>
                                     <td>{{$t->product_category_name}}</td>

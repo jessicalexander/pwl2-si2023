@@ -7,6 +7,11 @@
     <title>Data Transaksi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+    nav{
+        width: 20px !important;
+    }
+</style>
 <body style="background: lightgray">
     <div class="container mt-5">
         <div class="row">

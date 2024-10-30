@@ -7,6 +7,30 @@
     <title>Add New Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+    .button-container {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .btn-back {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-back:hover {
+        background-color: #0b5ed7;
+    }
+</style>
 <body style="background: lightgray">
     <div class="container mt-5 mb-5">
         <div class="row">
@@ -142,7 +166,9 @@
             </div>
         </div>
     </div>
-
+    <div class="button-container">
+        <button onclick="window.history.back()" class="btn-back">Kembali</button>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <script>

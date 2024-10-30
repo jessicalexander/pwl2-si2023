@@ -7,17 +7,27 @@
     <title>Data Transaksi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<style>
-    nav{
-        width: 20px !important;
-    }
-</style>
 <body style="background: lightgray">
-    <div class="container mt-5">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Data Logs</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="{{route('products.index')}}">Products</a>
+              <a class="nav-link" href="{{route('suppliers.index')}}">Suppliers</a>
+              <a class="nav-link active" aria-current="page" href="{{route('transaksi.index')}}">Transaction</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="container ">
         <div class="row">
             <div class="col-md-12">
                 <div class="">
-                    <h3 class="text-center my-4">Tugas Self-Learn Pert 4</h3>
+                    <h3 class="text-center my-4">Transaction Data</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-5m rounded">
@@ -28,40 +38,36 @@
                                 <tr>
                                     <th scope="col">TGL. TRANSAKSI</th>
                                     <th scope="col">NAMA KASIR</th>
-                                    <th scope="col">NAMA PRODUK</th>
-                                    <th scope="col">KATEGORI PRODUK</th>
-                                    <th scope="col">HARGA</th>
-                                    <th scope="col">JUMLAH</th>
-                                    <th scope="col">TOTAL</th>
+                                    <th scope="col">Total Harga</th>
+
                                     <th scope="col" style="width:20%">ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($trans as $t)
                                 <tr>
-                                    <td>{{$t->created_at}}</td>
-                                    <td>{{$t->nama_kasir}}</td>
-                                    <td>{{$t->title}}</td>
-                                    <td>{{$t->product_category_name}}</td>
-                                    <td>{{"Rp ".number_format($t->price,2,',','-')}}</td>
-                                    <td>{{$t->jumlah}}</td>
-                                    <td>{{"Rp ".number_format($t->total_harga,2,',','-')}}</td>
+                                    <td>{{ $t->transaksi_created}}</td>
+                                    <td>{{ $t->nama_kasir }}</td>
+                                    <td>{{ "Rp.".number_format($t->total_harga, 2,',','.')}}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin?');"action="{{route('transaksi.destroy',$t->id)}}" method="POST">
-                                            <a href="{{route('transaksi.show', $t->id)}}" class="btn btn-sn btn-dark">SHOW</a>
-                                            <a href="{{route('transaksi.edit', $t->id)}}" class="btn btn-sn btn-primary">EDIT</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin?');" action="{{ route('transaksi.destroy', $t->id) }}" method="POST">
+                                            <a href="{{ route('transaksi.show', $t->id) }}" class="btn btn-sn btn-dark">SHOW</a>
+                                            <a href="{{ route('transaksi.edit', $t->id) }}" class="btn btn-sn btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit"class="btn btn-sn btn-danger">HAPUS</button>
+                                            <button type="submit" class="btn btn-sn btn-danger">HAPUS</button>
                                         </form>
                                     </td>
                                 </tr>
                                 @empty
-                                <div class="alert alert-danger">
-                                    Data Transaksi Belum Tersedia.
-                                </div>
+                                <tr>
+                                    <td colspan="5" class="text-center">
+                                        <div class="alert alert-danger">Data Transaksi Belum Tersedia.</div>
+                                    </td>
+                                </tr>
                                 @endforelse
                             </tbody>
+                            
                         </table>
                         {{$trans->links()}}
                     </div>
